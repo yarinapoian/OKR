@@ -19,6 +19,30 @@ h4 {
 body {
     background-color: #b3b3ff !important;
 }
+a:link {
+    color: darkblue;
+}
+a:visited {
+    color: hotpink;
+}
+a:hover {
+    color: white;
+    background-color: darkmagenta;
+}
+a:active {
+    color: red;
+}
+li:first-child {
+    font-weight: bold;
+    text-decoration: underline;
+}
+h4:before {
+    content: "| ";
+}
+
+h4:after {
+    content: " |";
+}
 ul {
     list-style-type: square;
     color: teal;
@@ -72,4 +96,13 @@ h4 + ul {
     border-left: 5px solid darkmagenta;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+.mainInfo {
+    position: sticky;
+    top: 0;
+}
+.mainLetter {
+    float: left;
+    font-size: 400%;
+    line-height: 80%;
 }
