@@ -110,3 +110,31 @@ menu.addEventListener('click', (event) => {
 	const behavior = behaviors[behaviorName];
 	behavior.call(button, event);
 });
+
+const idolPoster = document.querySelector('.idolPoster img');
+idolPoster.addEventListener('mouseover', (event) => {
+	event.target.style.transform = 'scale(1.1)';
+	event.relatedTarget.style.filter = 'blur(10px)'
+	console.log(event.relatedTarget)
+})
+idolPoster.addEventListener('mouseout', (event) => {
+	event.target.style.transform = 'none';
+	event.relatedTarget.style.filter = 'none';
+})
+
+const moveable = document.querySelector('#moveable');
+moveable.ondragstart = function() {
+	return false;
+}
+moveable.addEventListener('mousedown', function(event) {
+	event.target.style.position = 'absolute';
+	event.target.style.zIndex = 1000;
+})
+const onMouseMove = function(event) {
+	moveable.style.left = event.pageX - moveable.offsetWidth / 2 + 'px';
+	moveable.style.top = event.pageY - moveable.offsetHeight / 2 + 'px';
+}
+moveable.addEventListener('mousemove', onMouseMove)
+moveable.addEventListener('mouseup', function() {
+	moveable.removeEventListener('mousemove', onMouseMove)
+})
